@@ -6,6 +6,7 @@ import java.util.List;
 
 @Entity
 public class ToDoList {
+
     @Id
     @SequenceGenerator(name = "to_do_list_id_sequence", sequenceName = "to_do_list_id_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "to_do_list_id_sequence")

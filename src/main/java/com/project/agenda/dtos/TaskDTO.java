@@ -1,34 +1,14 @@
-package com.project.agenda.entities;
+package com.project.agenda.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import com.project.agenda.entities.ToDoList;
 
-@Entity
-public class Task {
+public class TaskDTO {
 
-    @Id
-    @SequenceGenerator(name = "task_id_sequence", sequenceName = "task_id_sequence")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_id_sequence")
     private Integer id;
     private String name;
     private String description;
-    @Column(columnDefinition = "boolean default false", nullable = false)
     private Boolean done;
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name="to_do_list_id", nullable=false)
     private ToDoList toDoList;
-
-    public Task() {
-    }
-
-    public Task(Integer id, String name, String description, Boolean done, ToDoList toDoList) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.done = done;
-        this.toDoList = toDoList;
-    }
 
     public Integer getId() {
         return id;
